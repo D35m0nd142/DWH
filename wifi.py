@@ -67,7 +67,7 @@ if(enc == "WPA" or enc == "WPA2" or enc == "wpa" or enc == "wpa2"):
 	print "  4) JTR+Pyrit"  
 	print "  5) JTR+Aircrack"
 	print "  6) Hashcat"
-	choice = raw_input("  -> ")
+	choice = raw_input("\n  -> ")
 
 	if(choice == "1"):
 		cmd = "aircrack-ng capture_file-01.cap -w ./wordlist.lst"
