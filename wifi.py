@@ -72,7 +72,7 @@ if(enc == "WPA" or enc == "WPA2" or enc == "wpa" or enc == "wpa2"):
 
         wlist = ""
 	if(choice == "1" or choice == "5" or choice == "6"):
-		wlist = raw_input("[*] Enter your wordlist -> ") 
+		wlist = raw_input("\n[*] Enter your wordlist -> ") 
 
 	if(choice == "1"):
 		cmd = "aircrack-ng capture_file-01.cap -w ./%s" %wlist
