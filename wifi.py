@@ -11,7 +11,7 @@ def killctrl():
 	os.system("airmon-ng check kill")
 
 print "\n+===========================================================================+"
-print "| DWH - Simple (but working) WEP/WPA/WPA2 Hacking script                   |"
+print "| DWH - Simple (but working) WEP/WPA/WPA2 Hacking script                    |"
 print "| Author: D35m0nd142, https://twitter.com/d35m0nd142                        |"
 print "| Usage: Just run it and let it head you :)                                 |" 
 print "+===========================================================================+\n"
