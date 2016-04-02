@@ -1,6 +1,7 @@
 # Semi-automatic and simple (but working!) WEP/WPA/WPA2 Hacking script 
 # External tools involved: Aircrack-ng pack, John the Ripper, Hashcat Ocl, Pyrit, Crunch, xterm.
 # Author: D35m0nd142 
+# Before use it you may have to execute: "pip install termcolor"
 
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
