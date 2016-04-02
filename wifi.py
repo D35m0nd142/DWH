@@ -10,7 +10,7 @@ from termcolor import colored
 def killctrl():
 	os.system("airmon-ng check kill")
 
-wlist = "wordlist.lst"
+wlist = ""
 print "\n+===========================================================================+"
 print "| DWH - Simple (but working) WEP/WPA/WPA2 Hacking script                    |"
 print "| Author: D35m0nd142, https://twitter.com/d35m0nd142                        |"
@@ -70,7 +70,6 @@ if(enc == "WPA" or enc == "WPA2" or enc == "wpa" or enc == "wpa2"):
 	print "  6) Hashcat"
 	choice = raw_input("\n  -> ")
 
-        wlist = ""
 	if(choice == "1" or choice == "5" or choice == "6"):
 		wlist = raw_input("\n[*] Enter your wordlist -> ") 
 
