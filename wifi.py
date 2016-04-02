@@ -100,12 +100,12 @@ if(enc == "WPA" or enc == "WPA2" or enc == "wpa" or enc == "wpa2"):
 		time.sleep(1)
 		print "\n[*] Using Hashcat Brute-Force attack..."
 		time.sleep(1)
-		print """\n?l = abcdefghijklmnopqrstuvwxyz
-?u = ABCDEFGHIJKLMNOPQRSTUVWXYZ
-?d = 0123456789
-?s =  space\"#$%&'()*+,-./:;<=>?@[\]^_`{|}~" 
-?a = ?l?u?d?s
-?b = 0x00 - 0xff\n"""
+		print """\n  ?l = abcdefghijklmnopqrstuvwxyz
+  ?u = ABCDEFGHIJKLMNOPQRSTUVWXYZ
+  ?d = 0123456789
+  ?s =  space\"#$%&'()*+,-./:;<=>?@[\]^_`{|}~" 
+  ?a = ?l?u?d?s
+  ?b = 0x00 - 0xff\n"""
 		brute = raw_input("Enter your bruteforce custom-charset (ex: ?l?d) -> ")
 		string = ""
 		found = False
